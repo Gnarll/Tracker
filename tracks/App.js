@@ -11,8 +11,8 @@ import TrackListScreen from './src/screens/TrackListScreen'
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
-    Singin: SigninScreen,
-    Signup: SignupScreen
+    Signup: SignupScreen,
+    Signin: SigninScreen,
   }),
   mainFlow: createBottomTabNavigator({
     trackListFlow: createStackNavigator({
