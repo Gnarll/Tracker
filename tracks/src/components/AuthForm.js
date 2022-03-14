@@ -11,7 +11,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
     return (
       <>
         <Spacer>
-          <Text h3>{headerText}</Text>
+          <Text style={styles.header} >{headerText}</Text>
         </Spacer>
         <Input
           label="Email"
@@ -48,6 +48,10 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         fontSize: 16,
       },
+    header: {
+      fontSize: 25,
+      alignSelf: 'center'
+    }
 })
 
 export default AuthForm

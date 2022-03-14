@@ -1,22 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";  
-import { Context as AuthContext } from "../context/authContext";
+import { Context as authContext } from "../context/authContext";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
+import { NavigationEvents } from "react-navigation";
 
-const SignupScreen = ({ navigation }) => {
-  const { state, signup } = useContext(AuthContext);
-
+const SignupScreen = () => {
+  const { state, signup, clearErrorMessage, tryLocalSignin } = useContext(authContext);
 
   return (
     <View style={styles.container}>
+      <NavigationEvents onWillFocus={clearErrorMessage}/>
       <AuthForm headerText='Signup for Tracker'
                 errorMessage={state.errorMessage}
                 onSubmit={signup}
                 submitButtonText='Sign Up'
-                navigation={navigation}
       />
-    <NavLink text={'Already have an account? Sign in instead'} routeName={'Signin'}/>
+      <NavLink text={'Already have an account? Sign in instead'} routeName={'Signin'}/>
     </View>
   );
 };
