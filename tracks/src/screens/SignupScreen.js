@@ -6,7 +6,7 @@ import NavLink from "../components/NavLink";
 import { NavigationEvents } from "react-navigation";
 
 const SignupScreen = () => {
-  const { state, signup, clearErrorMessage, tryLocalSignin } = useContext(authContext);
+  const { state, signup, clearErrorMessage } = useContext(authContext);
 
   return (
     <View style={styles.container}>
