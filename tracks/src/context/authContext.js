@@ -25,7 +25,6 @@ const tryLocalSignin = dispatch => async () => {
 }
 
 const clearErrorMessage = dispatch => () => {
-  console.log('done')
   dispatch({type: 'clear_error_message'})
 }
 
