@@ -2,7 +2,12 @@ import * as Location from 'expo-location'
 
 const tenMetresWithDegrees = 0.0001
 
-const getLocation = increment => {
+const getRandomStep = (currValue) => currValue + (Math.random() - 0.2) * tenMetresWithDegrees
+
+let currLongitude = 27.567444
+let currLatitude = 53.893009
+
+const getLocation = (counter) => {
     return {
         timestamp: 10000000,
         coords: {
@@ -11,8 +16,8 @@ const getLocation = increment => {
             accuracy: 5,
             altitudeAccuracy: 5,
             altitude: 5,
-            longitude: -122.0312186 + increment * tenMetresWithDegrees,
-            latitude: 37.33233141 + increment * tenMetresWithDegrees
+            longitude: currLongitude,
+            latitude: currLatitude
         }
     }
 }
@@ -24,5 +29,6 @@ setInterval(() => {
         watchId: Location._getCurrentWatchId(),
         location: getLocation(counter)
     })
-    counter++
+    currLatitude = getRandomStep(currLatitude)
+    currLongitude = getRandomStep(currLongitude)
 }, 1000)
