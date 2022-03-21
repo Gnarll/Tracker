@@ -7,6 +7,7 @@ import '../_mockLocation'
 import { Context as LocationContext } from "../context/locationContext";
 import useLocation from "../hooks/useLocation";
 import TrackForm from "../components/TrackForm";
+import Spacer from "../components/Spacer";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { state, addLocation } = useContext(LocationContext);
@@ -19,7 +20,9 @@ const TrackCreateScreen = ({ isFocused }) => {
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text h2>Create a Track</Text>
+      <Spacer>
+        <Text h2 style={styles.text}>Create a Track</Text>
+      </Spacer>
       <Map />
       {err ? <Text>Please enable location services</Text> : null}
       <TrackForm />
@@ -27,6 +30,15 @@ const TrackCreateScreen = ({ isFocused }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+// TrackCreateScreen.navigationOptions = () => {
+//   return {  
+
+// }
+
+const styles = StyleSheet.create({
+  text: {
+    alignSelf: 'center'
+  }
+});
 
 export default withNavigationFocus(TrackCreateScreen);

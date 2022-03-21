@@ -9,14 +9,21 @@ const AccountScreen = () => {
 
   const { signout } = useContext(authContext)
 
-  return <SafeAreaView forceInset={{top: 'always'}} >
-    <Text>AccountScreen</Text>
+  return <SafeAreaView forceInset={{top: 'always'}} style={styles.wrapper} >
+    <Spacer>
+      <Text style={styles.text}>AccountScreen</Text>
+    </Spacer>
     <Spacer>
       <Button title='Sign Out' onPress={signout} />
     </Spacer>
   </SafeAreaView>
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 24,
+    alignSelf: 'center'
+  },
+})
 
 export default AccountScreen
